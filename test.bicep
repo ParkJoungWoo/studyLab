@@ -13,6 +13,7 @@
 // firewall 설정해보기(outbound 제어)
 // policy 정책 built in 사용, custom policy 정책 사용하기
 
+
 param location string = resourceGroup().location
 param namePrefix string = 'stjoungwoo'
 

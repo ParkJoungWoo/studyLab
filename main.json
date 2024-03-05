@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.25.53.49325",
+      "templateHash": "8234068183534455337"
+    }
+  },
+  "parameters": {
+    "vnet_location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-09-01",
+      "name": "vnet-test",
+      "location": "[parameters('vnet_location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "100.0.0.0/24"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "MySubnet1",
+            "properties": {
+              "addressPrefix": "100.0.0.0/25"
+            }
+          },
+          {
+            "name": "MySubnet2",
+            "properties": {
+              "addressPrefix": "100.0.0.128/25"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
